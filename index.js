@@ -956,7 +956,7 @@ class NodeClam {
                         }
                         const error = new NodeClamError(
                             { file, err, isInfected: null },
-                            `There was an error scanning the file (ClamAV Error Code: ${err.code})`
+                            `There was an error scanning the file (ClamAV Error Code: ${err.code}; Message: ${err.message})`
                         );
                         if (self.settings.debugMode) console.log(`${this.debugLabel}`, error);
                         return hasCb ? cb(error, file, null, []) : reject(error);
