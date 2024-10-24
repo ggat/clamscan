@@ -958,7 +958,8 @@ class NodeClam {
                         console.log('err.cause?.message', err.cause?.message);
                         const error = new NodeClamError(
                             { file, err, isInfected: null },
-                            err.message?.substr(250)
+                            // err.message?.substr(250)
+                            err.message
                         );
                         if (self.settings.debugMode) console.log(`${this.debugLabel}`, error);
                         return hasCb ? cb(error, file, null, []) : reject(error);
