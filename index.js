@@ -954,6 +954,8 @@ class NodeClam {
                         if (Object.prototype.hasOwnProperty.call(err, 'code') && err.code === 1) {
                             return hasCb ? cb(null, file, true, viruses) : resolve({ file, isInfected, viruses });
                         }
+                        console.log('err.message', err.message);
+                        console.log('err.cause?.message', err.cause?.message);
                         const error = new NodeClamError(
                             { file, err, isInfected: null },
                             `There was an error scanning the file (ClamAV Error Code: ${err.code}; Message: ${err.message})`
